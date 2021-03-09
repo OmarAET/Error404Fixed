@@ -6,10 +6,10 @@ public class PlayerController : MonoBehaviour
 {
     public bool hideCursor = true;
 
-    const float speed = 15;
+    const float speed = 35;
     const float jumpSpeed = 25;
-    const float gravityScale = 8;
-    const float airControl = 3;
+    const float gravityScale = 10;
+    const float airControl = 12;
     const float groundControl = 10;
     const float maxSpeed = 40;
 
