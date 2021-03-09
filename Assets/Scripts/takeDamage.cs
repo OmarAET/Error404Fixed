@@ -23,7 +23,7 @@ public class takeDamage : MonoBehaviour
         }
         if (playerHealth == 0)
         {
-            SceneManager.LoadScene("0");
+            SceneManager.LoadScene(0);
         }
     }
     void Update()
