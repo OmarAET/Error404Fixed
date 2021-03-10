@@ -36,7 +36,7 @@ public class takeDamage : MonoBehaviour
     }
     void Update()
     {
-        Text1.text = "Fishs: " + fishcount;
+        Text1.text = "Fish Collected: " + fishcount;
         Text.text = "Health: " + playerHealth.ToString();
 
         if (playerHealth <= 0)
