@@ -5,6 +5,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
     public bool hideCursor = true;
+    public Animator animator;
 
     const float speed = 35;
     const float jumpSpeed = 25;
@@ -43,6 +44,8 @@ public class PlayerController : MonoBehaviour
         // input
         h = Input.GetAxisRaw("Horizontal");
 
+        animator.SetFloat("Speed", Mathf.Abs(h));
+
         groundHit = Physics2D.CircleCast(rb.position, 0.6f, Vector2.zero, 0, mask.value);
 
         lerp = airControl; // air control
@@ -51,7 +54,9 @@ public class PlayerController : MonoBehaviour
         {
             lerp = groundControl;
             mat.friction = 1;
-            if (Input.GetButtonDown("Jump")) { rb.velocity += Vector2.up * jumpSpeed; }
+            animator.SetBool("IsJumping", false);
+
+            if (Input.GetButtonDown("Jump")) { rb.velocity += Vector2.up * jumpSpeed; animator.SetBool("IsJumping", true); }
         }
 
         // flip sprite
