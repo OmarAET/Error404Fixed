@@ -7,12 +7,15 @@ using UnityEngine.UI;
 public class takeDamage : MonoBehaviour
 {
     public Text Text;
+    public Text Text1;
     public int playerHealth = 100;
     int damage = 10;
+    int fishcount = 0;
     private void Start()
     {
         print(playerHealth);
         Text.text = "Health";
+        Text1.text = "FishCount";
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -25,9 +28,15 @@ public class takeDamage : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
+        if (other.tag == "Fish")
+        {
+            fishcount += 1;
+            Destroy(other.gameObject);
+        }
     }
     void Update()
     {
+        Text1.text = "Fishs: " + fishcount;
         Text.text = "Health: " + playerHealth.ToString();
 
         if (playerHealth <= 0)
