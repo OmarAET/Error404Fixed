@@ -54,9 +54,9 @@ public class PlayerController : MonoBehaviour
         {
             lerp = groundControl;
             mat.friction = 1;
-            animator.SetBool("IsJumping", false);
+            
 
-            if (Input.GetButtonDown("Jump")) { rb.velocity += Vector2.up * jumpSpeed; animator.SetBool("IsJumping", true); }
+            if (Input.GetButtonDown("Jump")) { rb.velocity += Vector2.up * jumpSpeed;  }
         }
 
         // flip sprite
